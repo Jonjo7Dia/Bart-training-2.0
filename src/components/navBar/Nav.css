@@ -3,12 +3,13 @@
   height: 6rem;
   display: flex;
   padding-left: 20px;
+  box-sizing: border-box;
 }
 .navHeading {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   font-size: 2rem;
   position: relative;
 }
@@ -56,12 +57,14 @@
   font-size: 1.2rem;
   font-weight: bold;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 .navItem .title {
   height: 65%;
+  width: 100%;
 }
 .navItem .underline {
   margin-top: 8.5px;
@@ -71,14 +74,11 @@
 .navItem .title:hover {
   cursor: pointer;
 }
-.navItem:hover .underline {
+.unactive:hover .underline {
   display: block;
   animation: grow 0.25s forwards;
 }
-.navHeading:hover .underline {
-  display: block;
-  animation: grow 0.25s forwards;
-}
+
 @media only screen and (max-width: 750px) {
   span {
     display: none !important;
@@ -90,7 +90,7 @@
     align-items: center;
   }
   .nav {
-    padding-left: 10px;
+      height: 4rem;
   }
   
 }
@@ -98,6 +98,13 @@
   .navLinks {
     display: none;
   }
+  .nav {
+  padding-left: 10px;
+  padding-right: 0px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 }
 
 @keyframes grow {
@@ -105,6 +112,6 @@
     width: 0%;
   }
   to {
-    width: 98%;
+    width: 100%;
   }
 }

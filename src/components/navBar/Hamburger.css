@@ -1,0 +1,43 @@
+.mobileNav {
+  display: none;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80px;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.mobile-nav_burger {
+  width: 30px;
+  height: 3px;
+  background: black;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+.mobile-nav_burger::before,
+.mobile-nav_burger::after {
+  content: ' ';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: black;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+.mobile-nav_burger::before{
+    transform: translateY(-10px);
+}
+.mobile-nav_burger::after{
+    transform: translateY(10px);
+}
+
+@media only screen and (max-width: 1140px) {
+  .mobileNav {
+    width: 7rem;
+    margin-right: 10px;
+    display: flex;
+  }
+}

@@ -11,7 +11,7 @@
 
 }
 .top svg {
-    object-fit: fill;
+    max-width: 100%;
 }
 .bottom {
     width: 100%;

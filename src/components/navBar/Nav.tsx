@@ -1,26 +1,30 @@
 import { useState } from "react";
 import "./Nav.css";
+import Hamburger from "./Hamburger";
 function Nav() {
   const [isActive, setIsActive] = useState("Home");
   console.log(isActive);
   return (
     <div className={"nav"}>
       <div
-        className={"navHeading"}
+        className={`navHeading ${isActive !== 'Home' ? 'unactive' : 'active'}`}
         onClick={() => {
           setIsActive("Home");
         }}
       >
-        <div className={"title"}>
+        <div className={`title`}>
           <h1>Bar Training</h1>
         </div>
-        <span className={"underline"} style={{width: isActive === 'Home' ? '98%' : '0%'}}></span>
+        <span
+          className={"underline"}
+          style={{ width: isActive === "Home" ? "100%" : "0%" }}
+        ></span>
       </div>
       <div className={"navLinks"}>
         <ul>
           <li>
             <div
-              className={"navItem"}
+              className={`navItem ${isActive !== 'Flashcards' ? 'unactive' : 'active'}`}
               onClick={() => {
                 setIsActive("Flashcards");
               }}
@@ -28,12 +32,15 @@ function Nav() {
               <div className={"title"}>
                 <h3>Flashcards</h3>
               </div>
-              <span className={"underline"} style={{width: isActive === 'Flashcards' ? '98%' : '0%',}}></span>
+              <span
+                className={"underline"}
+                style={{ width: isActive === "Flashcards" ? "100%" : "0%" }}
+              ></span>
             </div>
           </li>
           <li>
             <div
-              className={"navItem"}
+              className={`navItem ${isActive !== 'History' ? 'unactive' : 'active'}`}
               onClick={() => {
                 setIsActive("History");
               }}
@@ -42,12 +49,15 @@ function Nav() {
                 <h3>Cocktail History</h3>
               </div>
 
-              <span className={"underline"}  style={{width: isActive === 'History' ? '98%' : '0%'}}></span>
+              <span
+                className={"underline"}
+                style={{ width: isActive === "History" ? "100%" : "0%" }}
+              ></span>
             </div>
           </li>
           <li>
             <div
-              className={"navItem"}
+              className={`navItem ${isActive !== 'Quiz' ? 'unactive' : 'active'}`}
               onClick={() => {
                 setIsActive("Quiz");
               }}
@@ -56,11 +66,15 @@ function Nav() {
                 <h3>Quiz</h3>
               </div>
 
-              <span className={"underline"} style={{width: isActive === 'Quiz' ? '98%' : '0%'}}></span>
+              <span
+                className={"underline"}
+                style={{ width: isActive === "Quiz" ? "100%" : "0%" }}
+              ></span>
             </div>
           </li>
         </ul>
       </div>
+      <Hamburger />
     </div>
   );
 }
