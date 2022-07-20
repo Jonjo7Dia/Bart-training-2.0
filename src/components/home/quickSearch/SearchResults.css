@@ -1,0 +1,20 @@
+.searchResults {
+  max-height: 15rem;
+  overflow: scroll;
+  width: 20rem;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+@media only screen and (min-width: 950px) {
+  .searchResults {
+    width: 60rem;
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  .searchResults {
+    width: 40rem;
+  }
+}
+

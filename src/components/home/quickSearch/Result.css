@@ -1,0 +1,45 @@
+.result {
+  width: 100%;
+  height: 0;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  animation: results 0.2s forwards;
+}
+.result:hover {
+  cursor: pointer;
+  background-color: rgb(218, 214, 214);
+}
+.result .drinkIcon {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff0038;
+}
+.result .drinkName {
+  width: 85%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-right: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result h3 {
+  font-size: 1rem;
+}
+.result:last-of-type {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+@keyframes results {
+  from {
+    min-height: 0;
+  }
+  to {
+    min-height: 2.5rem;
+  }
+}

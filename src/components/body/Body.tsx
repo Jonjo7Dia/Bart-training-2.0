@@ -1,6 +1,6 @@
 import "./Body.css";
 import Background from "./Background";
-import Home from '../Home/Home';
+import Home from '../home/Home';
 function Body(props: any) {
   return (
     <div className={"Body"}>

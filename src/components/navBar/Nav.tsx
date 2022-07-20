@@ -8,7 +8,6 @@ function Nav() {
   const setPage = (page: string) => {
     dispatch({ type: "CHANGE_PAGE", payload: page });
   };
-  console.log(isActive);
   return (
     <div className={"nav"}>
       <div

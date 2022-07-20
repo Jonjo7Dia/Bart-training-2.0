@@ -23,15 +23,15 @@
 
 
 .firstItem{
-    animation: enter 0.5s forwards;
+    animation: enter 0.2s forwards;
 }
 .secondItem{
 
-    animation: enter 0.5s forwards 0.15s;
+    animation: enter 0.35s forwards ;
 
 }
 .thirdItem{
-    animation: enter 0.5s forwards 0.3s;
+    animation: enter 0.5s forwards ;
 
 }
 

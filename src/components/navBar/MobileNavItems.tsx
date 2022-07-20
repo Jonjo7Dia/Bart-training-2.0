@@ -1,6 +1,5 @@
 import "./MobileNavItems.css";
 import { useDispatch } from "react-redux";
-import { PageState } from "../../store/pagesReducer";
 function MobileNavItems() {
     const dispatch  = useDispatch();
     const setPage = (page: string) => {

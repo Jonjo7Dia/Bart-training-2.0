@@ -16,7 +16,7 @@
   background: black;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .mobile-nav_burger::before,
 .mobile-nav_burger::after {
@@ -27,7 +27,7 @@
   background: black;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .mobile-nav_burger::before{
     transform: translateY(-10px);
