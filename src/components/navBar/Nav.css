@@ -4,6 +4,9 @@
   display: flex;
   padding-left: 20px;
   box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .navHeading {
   height: 100%;

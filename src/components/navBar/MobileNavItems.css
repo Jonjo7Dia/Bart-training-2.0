@@ -1,0 +1,44 @@
+.mobileNavList{
+    height: 100%;
+    width: 100%;
+}
+.mobileNavList ul{
+    list-style-type: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.mobileNavList li{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(150px);
+
+}
+
+.firstItem{
+
+    animation: enter 0.5s forwards;
+}
+.secondItem{
+
+    animation: enter 0.5s forwards 0.15s;
+
+}
+.thirdItem{
+    animation: enter 0.5s forwards 0.3s;
+
+}
+
+
+@keyframes enter{
+    from {
+        transform: translateX(150px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}

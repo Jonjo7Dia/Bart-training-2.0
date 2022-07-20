@@ -7,6 +7,8 @@
   height: 100%;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
 }
 .mobile-nav_burger {
   width: 30px;
@@ -33,6 +35,45 @@
 .mobile-nav_burger::after{
     transform: translateY(10px);
 }
+.mobileNav.open .mobile-nav_burger{
+    transform: translateX(-30px);
+    background:transparent;
+    box-shadow: none;
+}
+.mobileNav.open .mobile-nav_burger::before{
+    transform: rotate(45deg) translate(25px, -25px);
+}
+.mobileNav.open .mobile-nav_burger::after{
+    transform: rotate(-45deg) translate(25px, 25px);
+}
+.mobileNavItems{
+    position: absolute;
+    top: 100%;
+    height: 200px;
+    width: 150px;
+}
+@media only screen and (min-width: 850px) {
+    .mobile-nav_burger {
+        width: 50px;
+        height: 4px;
+        margin-top: 40px;
+    }
+    .mobile-nav_burger::after, .mobile-nav_burger::before{
+        width: 50px;
+        height: 4px; 
+    }
+    .mobile-nav_burger::before{
+        transform: translateY(-14px);
+    }
+    .mobile-nav_burger::after{
+        transform: translateY(14px);
+    }
+    .mobileNav{
+        align-items: flex-start;
+
+    }
+  }
+
 
 @media only screen and (max-width: 1140px) {
   .mobileNav {

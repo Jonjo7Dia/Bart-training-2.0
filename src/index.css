@@ -2,6 +2,7 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+
 html,
 body,
 div,
@@ -70,6 +71,7 @@ td {
   font-family: "Montserrat", sans-serif;
   vertical-align: baseline;
   user-select: none;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
 }
 body {
   height: 100vh;
