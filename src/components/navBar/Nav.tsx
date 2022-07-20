@@ -1,15 +1,20 @@
-import { useState } from "react";
 import "./Nav.css";
 import Hamburger from "./Hamburger";
+import { useDispatch, useSelector } from "react-redux";
+import { PageState } from "../../store/pagesReducer";
 function Nav() {
-  const [isActive, setIsActive] = useState("Home");
+  const dispatch = useDispatch();
+  const isActive = useSelector<PageState>((state) => state.page);
+  const setPage = (page: string) => {
+    dispatch({ type: "CHANGE_PAGE", payload: page });
+  };
   console.log(isActive);
   return (
     <div className={"nav"}>
       <div
-        className={`navHeading ${isActive !== 'Home' ? 'unactive' : 'active'}`}
+        className={`navHeading ${isActive !== "Home" ? "unactive" : "active"}`}
         onClick={() => {
-          setIsActive("Home");
+          setPage("Home");
         }}
       >
         <div className={`title`}>
@@ -24,9 +29,11 @@ function Nav() {
         <ul>
           <li>
             <div
-              className={`navItem ${isActive !== 'Flashcards' ? 'unactive' : 'active'}`}
+              className={`navItem ${
+                isActive !== "Flashcards" ? "unactive" : "active"
+              }`}
               onClick={() => {
-                setIsActive("Flashcards");
+                setPage("Flashcards");
               }}
             >
               <div className={"title"}>
@@ -40,9 +47,11 @@ function Nav() {
           </li>
           <li>
             <div
-              className={`navItem ${isActive !== 'History' ? 'unactive' : 'active'}`}
+              className={`navItem ${
+                isActive !== "History" ? "unactive" : "active"
+              }`}
               onClick={() => {
-                setIsActive("History");
+                setPage("History");
               }}
             >
               <div className={"title"}>
@@ -57,9 +66,11 @@ function Nav() {
           </li>
           <li>
             <div
-              className={`navItem ${isActive !== 'Quiz' ? 'unactive' : 'active'}`}
+              className={`navItem ${
+                isActive !== "Quiz" ? "unactive" : "active"
+              }`}
               onClick={() => {
-                setIsActive("Quiz");
+                setPage("Quiz");
               }}
             >
               <div className={"title"}>
