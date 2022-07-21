@@ -1,5 +1,5 @@
 .searchResults {
-  max-height: 15rem;
+  max-height: 10rem;
   overflow: scroll;
   width: 20rem;
   border-bottom-left-radius: 15px;
@@ -9,12 +9,14 @@
 @media only screen and (min-width: 950px) {
   .searchResults {
     width: 60rem;
+    max-height:15;
   }
 }
 
 @media only screen and (min-width: 650px) {
   .searchResults {
     width: 40rem;
+    max-height: 10rem;
   }
 }
 

@@ -5,6 +5,8 @@ import SearchResults from "./SearchResults";
 import { useState } from "react";
 function QuickSearch() {
   const [isSearching, setIsSearching] = useState(false);
+  const [searchWord, setSearchWord] = useState('');
+  
   return (
     <div className={"search"}>
       <div className={`searchBar ${isSearching ? 'squareEdge' : ''}`}>
@@ -21,18 +23,21 @@ function QuickSearch() {
           >
             <input
               type="text"
-              placeholder="Quick Search a Cocktail Recipe"
+              placeholder="Search a Cocktail Recipe"
               onFocus={() => {
                 setIsSearching(true);
               }}
               onBlur ={()=>{
                   setIsSearching(false);
               }}
+              onChange={(e)=>{
+                  setSearchWord(e.target.value)
+              }}
             />
           </form>
         </div>
       </div>
-     { isSearching && <SearchResults />}
+     { isSearching && <SearchResults word ={searchWord} />}
     </div>
   );
 }
