@@ -1,5 +1,4 @@
 import './DrinkCard.css'
-import tea from  '../../../images/Martini.png';
 
 interface Props {
     drink: {

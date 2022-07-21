@@ -11,8 +11,9 @@
   white-space: nowrap;
 
   scrollbar-width: 0;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+  box-sizing: border-box;
 }
 .carouselItems::-webkit-scrollbar {
   display: none;
