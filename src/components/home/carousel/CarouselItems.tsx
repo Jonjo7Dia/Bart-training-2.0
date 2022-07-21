@@ -7,7 +7,7 @@ function CarouselItems(){
     const drinks= useSelector<PageState, PageState["drinks"]>(state=>state.drinks);
 
     const mustKnow = [drinks[9],drinks[8], drinks[6], drinks[4]];
-    console.log(mustKnow);
+
     return <div className={'carouselItems'}>
         {mustKnow.map((drink, index) => (<DrinkCard key={index} drink={drink}/>))}
 

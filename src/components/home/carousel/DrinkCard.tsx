@@ -14,8 +14,6 @@ function DrinkCard({drink} : Props){
         Name = 'Martini';
     }
     const source = require(`../../../images/${Name}.png`)
-    console.log(Name);
-    console.log(source);
     return <div className={'drinkCard'}>
         <div className={'drinkImage'}><img src={source} alt={Name} 
 />

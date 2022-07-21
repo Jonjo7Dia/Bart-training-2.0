@@ -1,7 +1,9 @@
 import "./Home.css";
 import QuickSearch from "./quickSearch/QuickSearch";
-import Carousel from './carousel/Carousel';
+import Carousel from './carousel/Carousel'; 
+
 function Home() {
+
   return (
     <div className={"home"}>
       <QuickSearch />
