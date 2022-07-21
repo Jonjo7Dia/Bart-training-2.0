@@ -1,0 +1,19 @@
+.carouselItems {
+  height: 85%;
+  min-width: 100%;
+  max-width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  overflow-x: scroll;
+  white-space: nowrap;
+
+  scrollbar-width: 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.carouselItems::-webkit-scrollbar {
+  display: none;
+}
