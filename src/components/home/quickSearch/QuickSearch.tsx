@@ -5,7 +5,7 @@ import SearchResults from "./SearchResults";
 import { useState } from "react";
 function QuickSearch() {
   const [isSearching, setIsSearching] = useState(false);
-  const [searchWord, setSearchWord] = useState('');
+  const [searchWord, setSearchWord] = useState('12');
   
   return (
     <div className={"search"}>
@@ -31,7 +31,12 @@ function QuickSearch() {
                   setIsSearching(false);
               }}
               onChange={(e)=>{
-                  setSearchWord(e.target.value)
+                  if(e.target.value.length > 0){
+                    setSearchWord(e.target.value);
+                  }
+                  else {
+                      setSearchWord('12');
+                  }
               }}
             />
           </form>
