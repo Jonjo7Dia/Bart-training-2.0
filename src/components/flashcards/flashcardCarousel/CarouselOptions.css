@@ -1,8 +1,64 @@
-.carouselOptions {
+/* .carouselOptions {
     width: 100%;
     height: 20%;
     border: black 1px solid;
     display: flex;
     justify-content: center;
     align-items: center;
+} */
+
+.carouselOptions {
+  height: 20%;
+  width: 30%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.carouselButtons {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.carouselButtons div {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.controls:hover {
+  cursor: pointer;
+  color: white;
+}
+.switchHolder {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.switch {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .switchHolder:hover {
+    cursor: pointer;
+    color: white;
+  }
+
+@media (max-width: 800px) {
+  .carouselOptions {
+    width: 100%;
+  }
+  .switchHolder{
+    width: 80%;
+    
+}
 }

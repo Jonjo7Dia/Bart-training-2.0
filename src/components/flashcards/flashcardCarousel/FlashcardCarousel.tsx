@@ -59,7 +59,7 @@ function FlashcardCarousel() {
   return (
     <div className={"fcCarousel"}>
       <div className={"cardHolder"}>{items}</div>
-      <CarouselOptions next={nextCard} back={lastCard} />
+      <CarouselOptions next={nextCard} back={lastCard} current={card}/>
     </div>
   );
 }
