@@ -12,9 +12,51 @@
     background-color: #f6f8fb;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
+}
+.fcCard {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+#fcCard0{
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.next {
+    animation: in-left 0.2s ease forwards ;
+
+}
+.back {
+    animation: out-right 0.2s ease forwards ;
+
 }
 @media only screen and (max-width: 800px){
     .fcCarousel{
         width: 85%;
+    }
+}
+
+@keyframes in-left{
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes out-right{
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
     }
 }
