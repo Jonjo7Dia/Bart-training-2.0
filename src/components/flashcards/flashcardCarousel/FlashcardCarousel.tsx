@@ -6,15 +6,23 @@ import Flashcard from "./Flashcard";
 import { useState } from "react";
 function FlashcardCarousel() {
   const [card, setCard] = useState(0);
+  const [showFront, setShowFront] = useState(true);
+  const [clicked, setClicked] = useState(false);
   let items: any = [];
-  let itemsRight: any = [];
+
   const drinks = useSelector<PageState, PageState["drinks"]>(
     (state) => state.drinks
   );
   drinks.map((drink, index) => {
     return items.push(
       <div key={index} className={"fcCard"} id={`fcCard${index}`}>
-        <Flashcard drink={drink} />
+        <Flashcard
+          drink={drink}
+          cardNumber={card}
+          frontShower={showFront}
+          flip={flip}
+          clicked={setIsClicked}
+        />
       </div>
     );
   });
@@ -36,6 +44,7 @@ function FlashcardCarousel() {
       });
     }
   }
+
   function lastCard() {
     const currentElement = document.getElementById(`fcCard${card}`);
     currentElement?.classList.remove("back", "next", "backRight", "nextRight");
@@ -56,10 +65,25 @@ function FlashcardCarousel() {
       });
     }
   }
+  function setIsClicked() {
+    setClicked(true);
+  }
+console.log(clicked);
+  function flip() {
+    if (clicked) {
+      setShowFront(!showFront);
+      setClicked(false);
+    }
+  }
   return (
     <div className={"fcCarousel"}>
       <div className={"cardHolder"}>{items}</div>
-      <CarouselOptions next={nextCard} back={lastCard} current={card}/>
+      <CarouselOptions
+        next={nextCard}
+        back={lastCard}
+        current={card}
+        flip={flip}
+      />
     </div>
   );
 }
