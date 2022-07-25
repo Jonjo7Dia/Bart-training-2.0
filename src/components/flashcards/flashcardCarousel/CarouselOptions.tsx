@@ -8,30 +8,26 @@ import { faRepeat } from "@fortawesome/free-solid-svg-icons";
 interface Props {
   next: () => any;
   back: () => any;
-  flip: () => any;
-
   current: number;
 }
-function CarouselOptions({ next, back, current, flip}: Props) {
+function CarouselOptions({ next, back, current}: Props) {
   return (
     <div className={"carouselOptions"}>
       <div className={"carouselButtons"}>
         <div className={"controls"} onClick={()=>{
           back();
-          flip();
         }}>
           <FontAwesomeIcon icon={faArrowLeftLong} />
         </div>
         <div>{`${current + 1}/19`}</div>
         <div className={"controls"} onClick={()=>{
           next();
-          flip();
         }}>
           <FontAwesomeIcon icon={faArrowRightLong} />
         </div>
       </div>
       <div className={"switchHolder"}>
-        <div className={"switch"} onClick={flip}>
+        <div className={"switch"}>
           <FontAwesomeIcon icon={faRepeat} />
           Switch Terms and Definitions
         </div>
