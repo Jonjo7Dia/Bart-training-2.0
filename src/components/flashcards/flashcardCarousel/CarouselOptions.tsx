@@ -26,12 +26,7 @@ function CarouselOptions({ next, back, current}: Props) {
           <FontAwesomeIcon icon={faArrowRightLong} />
         </div>
       </div>
-      <div className={"switchHolder"}>
-        <div className={"switch"}>
-          <FontAwesomeIcon icon={faRepeat} />
-          Switch Terms and Definitions
-        </div>
-      </div>
+
     </div>
   );
 }
