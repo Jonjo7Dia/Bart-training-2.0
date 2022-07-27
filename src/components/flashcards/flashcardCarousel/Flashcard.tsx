@@ -1,5 +1,7 @@
-import { useState, KeyboardEvent } from "react";
+import { useState } from "react";
 import "./Flashcard.css";
+import FlashcardBack from './FlashcardBack';
+
 
 interface Props {
   drink: {
@@ -16,23 +18,6 @@ function Flashcard({ drink }: Props) {
   if (Name === "Martini Gin/Vodka 6:1") {
     Name = "Martini";
   }
-
-  document.getElementById('fcCard0')?.addEventListener("keydown", function (e) {
-    switch (e.keyCode) {
-      case 37:
-        console.log("left");
-        break;
-      case 38:
-        console.log("up");
-        break;
-      case 39:
-        console.log("rigth");
-        break;
-      case 40:
-        console.log("down");
-        break;
-    }
-  });
   const source = require(`../../../images/${Name}.png`);
   return (
     <div
@@ -47,7 +32,9 @@ function Flashcard({ drink }: Props) {
       <div className={"fcFront"}>
         <img src={source} alt={Name} />
       </div>
-      <div className={"fcBack"}></div>
+      <div className={"fcBack"}>
+        <FlashcardBack drinkInfo={drink}/>
+      </div>
     </div>
   );
 }

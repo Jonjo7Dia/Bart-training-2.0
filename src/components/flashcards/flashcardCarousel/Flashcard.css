@@ -5,7 +5,7 @@
   height: 100%;
   width: 100%;
   position: relative;
-  border-radius: 15px;
+  border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .fcFront {
@@ -15,18 +15,18 @@
   justify-content: center;
   align-items: center;
   background-color: white;
-  border-radius: 15px;
+  border-radius: 25px;
   backface-visibility: hidden;
   position: absolute;
 }
 .fcBack {
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: white;
   transform: rotateX(180deg);
   backface-visibility: hidden;
   position: absolute;
-  border-radius: 15px;
+  border-radius: 25px;
   left: 0;
   top: 0;
 }

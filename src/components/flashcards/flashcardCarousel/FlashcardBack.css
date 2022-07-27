@@ -1,0 +1,66 @@
+.flashcardBack{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.drinkTitle{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+.drinkRecipe{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+}
+.drinkIngredients, .drinkSteps{
+    width: 50%;
+    height: 100%;
+
+}
+.ingredientsTitle{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.recipeList{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ingredientsList{
+    list-style-type: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:  space-around;
+
+}
+.ingredientsList li {
+    width: 60%;
+    font-size: 1rem;
+    text-align: center;
+
+}
+@media only screen and (max-width: 800px){
+    .ingredientsList li{
+        width: 90%;
+    }
+}
