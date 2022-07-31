@@ -29,6 +29,7 @@ function QuickSearch() {
               }}
               onBlur ={()=>{
                   setIsSearching(false);
+
               }}
               onChange={(e)=>{
                   if(e.target.value.length > 0){

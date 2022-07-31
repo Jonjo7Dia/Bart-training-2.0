@@ -11,14 +11,19 @@
 @media only screen and (min-width: 950px) {
   .searchResults {
     width: 60rem;
-    max-height:15;
+    max-height:15rem;
   }
 }
 
 @media only screen and (min-width: 650px) {
   .searchResults {
     width: 40rem;
-    max-height: 10rem;
+
+  }
+}
+@media only screen and (max-width: 800px){
+  .searchResults{
+    max-height: 6rem;
   }
 }
 

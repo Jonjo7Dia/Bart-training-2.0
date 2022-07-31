@@ -60,7 +60,12 @@
 
 }
 @media only screen and (max-width: 800px){
+    .drinkTitle{
+        font-size: 1.5rem;
+    }
     .ingredientsList li{
+    font-size: 0.8rem;
+
         width: 90%;
     }
 }

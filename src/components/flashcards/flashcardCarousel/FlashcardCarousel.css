@@ -16,24 +16,31 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  transform: translateX(-100%);
+  transform: translateX(0%);
 
   opacity: 0;
+  cursor: pointer;
 }
 
 #fcCard0 {
   transform: translateX(0%);
   opacity: 1;
+  z-index: 20;
+
 }
+
 
 .next {
   animation: in-left 0.2s ease forwards;
+  z-index: 20;
 }
 .back {
   animation: out-right 0.2s ease forwards;
 }
 .nextRight {
   animation: in-right 0.2s ease forwards;
+  z-index: 20;
+
 }
 .backRight {
   animation: out-left 0.2s ease forwards;
@@ -61,13 +68,13 @@
   }
   to {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(5%);
   }
 }
 @keyframes in-right {
   from {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(5%);
   }
   to {
     opacity: 1;
@@ -81,6 +88,6 @@
   }
   to {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-5%);
   }
 }
