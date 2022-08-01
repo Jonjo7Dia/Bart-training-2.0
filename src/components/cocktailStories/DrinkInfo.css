@@ -5,10 +5,33 @@
     position: relative;
     margin-bottom: 1.5rem;
 }
+.historyHolder{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.drinkInfoMobile{
+    display: none;
+}
 
+@media only screen and (max-width: 1120px){
+    .drinkInfo{
+        width: 40rem;
+        height: 20rem;
+    }
+}
 @media only screen and (max-width: 800px){
     .drinkInfo{
-        width: 20rem;
-        height: 15rem;
+        display: none;
+    }
+    .drinkInfoMobile{
+        display: flex;
+        width: 95%;
+        height: 20rem;
+        background-color: white;
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
     }
 }
