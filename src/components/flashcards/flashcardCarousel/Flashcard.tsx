@@ -10,10 +10,13 @@ interface Props {
     Recipe: string[];
     History: string;
   };
+  showFront: boolean;
+  flip: () => any;
+
 }
 
-function Flashcard({ drink }: Props) {
-  const [flip, setFlip] = useState(false);
+function Flashcard({ drink, showFront, flip }: Props) {
+
   let Name = drink.Name;
   if (Name === "Martini Gin/Vodka 6:1") {
     Name = "Martini";
@@ -21,10 +24,8 @@ function Flashcard({ drink }: Props) {
   const source = require(`../../../images/${Name}.png`);
   return (
     <div
-      className={`flashcard ${flip ? "frontToBack" : "backToFront"}`}
-      onClick={() => {
-        setFlip(!flip);
-      }}
+      className={`flashcard ${showFront ? "frontToBack" : "backToFront"}`}
+      onClick={flip}
       onKeyUp={(e) => {
         console.log("hello");
       }}

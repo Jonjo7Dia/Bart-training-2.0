@@ -6,6 +6,7 @@ import Flashcard from "./Flashcard";
 import { useState } from "react";
 function FlashcardCarousel() {
   const [card, setCard] = useState(0);
+  const [showFront, setShowFront] = useState(false);
   let items: any = [];
 
   const drinks = useSelector<PageState, PageState["drinks"]>(
@@ -16,6 +17,8 @@ function FlashcardCarousel() {
       <div key={index} className={"fcCard"} id={`fcCard${index}`}>
         <Flashcard
           drink={drink}
+          showFront={showFront}
+          flip={flip}
         />
       </div>
     );
@@ -37,6 +40,38 @@ function FlashcardCarousel() {
         return prevstate + 1;
       });
     }
+    setShowFront(false);
+
+  }
+  document.onkeydown = checkKey;
+
+  function checkKey(e:any) {
+  
+      e = e || window.event;
+  
+      if (e.keyCode == '38') {
+        flip();
+
+      }
+      else if (e.keyCode == '40') {
+        flip();
+      }
+      else if (e.keyCode == '37') {
+        setShowFront(false);
+
+        lastCard();
+
+      }
+      else if (e.keyCode == '39') {
+        setShowFront(false);
+
+        nextCard();
+
+      }
+  
+  }
+  function flip(){
+    setShowFront(!showFront);
   }
 
   function lastCard() {
@@ -58,6 +93,7 @@ function FlashcardCarousel() {
         return prevstate - 1;
       });
     }
+    setShowFront(false);
   }
  
   return (
