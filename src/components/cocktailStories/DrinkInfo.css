@@ -26,6 +26,7 @@
     }
     .drinkInfoMobile{
         display: flex;
+        flex-direction: column;
         width: 95%;
         height: 20rem;
         background-color: white;

@@ -13,8 +13,8 @@
     flex-direction: row;
 }
 .mobileHistoryText{
-    height: 65%;
-    max-height: 65%;
+    height: 62%;
+    max-height: 62%;
     width: 100%;
     overflow-y: scroll;
     text-align: justify;

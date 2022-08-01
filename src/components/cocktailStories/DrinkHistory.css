@@ -32,6 +32,9 @@
 .historyTitle {
     width: 100%;
     height: 10%;
+    color: #ff0038;
+    font-size: 1.5rem;
+    margin-right: 1rem;
 }
 .historyText {
     width: 100%;

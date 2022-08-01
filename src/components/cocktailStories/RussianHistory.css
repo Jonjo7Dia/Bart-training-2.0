@@ -1,0 +1,56 @@
+.russian{
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    display: flex;
+    flex-direction: row;
+
+
+}
+.russianText {
+    width: 40%;
+    height: 100%;
+}
+
+.russianTitle {
+    width: 100%;
+    height: 20%;
+    color: #ff0038;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.russianStory{
+    width: 100%;
+    height: 78%;
+    max-height: 80%;
+    overflow-y: scroll;
+    text-align: justify;
+    font-size: .8rem;
+    line-height: 1.3rem;
+    text-align: justify;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+.russianMobileTitle {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.9rem;
+    color: #ff0038;
+}
+
+
+@media only screen and (max-width: 800px){
+    .russian {
+        display: none;
+    }
+  
+}
