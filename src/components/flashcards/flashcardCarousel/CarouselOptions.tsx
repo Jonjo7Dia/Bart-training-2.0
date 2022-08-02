@@ -2,7 +2,7 @@ import "./CarouselOptions.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
-import { faRepeat } from "@fortawesome/free-solid-svg-icons";
+
 
 
 interface Props {

@@ -49,20 +49,20 @@ function FlashcardCarousel() {
   
       e = e || window.event;
   
-      if (e.keyCode == '38') {
+      if (e.keyCode === '38') {
         flip();
 
       }
-      else if (e.keyCode == '40') {
+      else if (e.keyCode === '40') {
         flip();
       }
-      else if (e.keyCode == '37') {
+      else if (e.keyCode === '37') {
         setShowFront(false);
 
         lastCard();
 
       }
-      else if (e.keyCode == '39') {
+      else if (e.keyCode === '39') {
         setShowFront(false);
 
         nextCard();

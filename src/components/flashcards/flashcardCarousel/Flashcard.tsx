@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Flashcard.css";
 import FlashcardBack from './FlashcardBack';
 

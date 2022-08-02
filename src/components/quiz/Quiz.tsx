@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import './Quiz.css'
-import IngredientQuiz from './IngredientQuiz';
+
 function Quiz(){
+    const totalQuestions = 1;
+    const [correctQuestions, setCorrectQuestions]= useState(0);
     return <div className={'quiz'}>
-        <IngredientQuiz />
+        
     </div>
 }
 
