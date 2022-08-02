@@ -3,6 +3,7 @@ import Background from "./Background";
 import Home from '../home/Home';
 import Flashcards from '../flashcards/Flashcards';
 import History from '../cocktailStories/History';
+import Quiz from '../quiz/Quiz';
 import {useSelector} from 'react-redux';
 import {PageState} from '../../store/pagesReducer';
 function Body(props: any) {
@@ -16,6 +17,7 @@ function Body(props: any) {
      {isActive === 'Home' && <Home />}
      {isActive === 'Flashcards' && <Flashcards/>}
      {isActive === 'History' && <History/>}
+     {isActive === 'Quiz' && <Quiz/>}
     </div>
   );
 }

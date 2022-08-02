@@ -13,6 +13,7 @@ function History(){
             if(!drink.Name.includes('Russian')){
                 return <DrinkInfo left={index%2 === 1 || index === 0 } drink={drink} key={index}/>
             }
+            return
         })}
         <RussianHistory />
 
