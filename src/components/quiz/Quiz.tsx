@@ -16,19 +16,55 @@ function shuffleArray(array: any[]) {
 function selectCorrect(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+function getMethods(answer:string, array:string[]){
+    let arrayToReturn = [answer];
+    let tempArray = shuffleArray(array);
+    let x = 0;
+    while(arrayToReturn.length < 4){
+        if(!arrayToReturn.includes(tempArray[x])){
+            arrayToReturn.push(tempArray[x]);
+        }
+        x++;
+    }
+    return shuffleArray(arrayToReturn);
+}
 
 function Quiz() {
   const totalQuestions = 1;
-  const [userAnswers, setUserAnswers] = useState({ 1: -1, 2: -1, 3: -1, });
-  const correctAnswers = useMemo( ()=> ({
-    1: selectCorrect(0, 3),
-    2: selectCorrect(4, 7),
-    3: selectCorrect(8, 11),
-  }), []);
+  const methods = [
+    "Build",
+    "Shake and Top Up",
+    "Shake and Fine Strain",
+    "Stir and Strain",
+    "Muddle and Build",
+    "Double Shake and Charge",
+    "Shake and Strain",
+  ];
   const drinks = useSelector<PageState, PageState["drinks"]>(
     (state) => state.drinks
   );
   const shuffleDrinks = shuffleArray(drinks);
+  const [userAnswers, setUserAnswers] = useState({
+    1: -1,
+    2: -1,
+    3: -1,
+    4: -1,
+    5: -1,
+    6: -1,
+  });
+  const correctAnswers = useMemo(
+    () => ({
+      1: selectCorrect(0, 3),
+      2: selectCorrect(4, 7),
+      3: selectCorrect(8, 11),
+      4: shuffleDrinks[12].Recipe[0],
+      5: shuffleDrinks[13].Recipe[0],
+      6: shuffleDrinks[14].Recipe[0],
+    }),
+    []
+  );
+  console.log(correctAnswers);
+    console.log(userAnswers);
   const question1 = useMemo(
     () => (
       <MCQ
@@ -41,6 +77,7 @@ function Quiz() {
           shuffleDrinks[3].Ingredients,
         ]}
         updateAnswer={addUserAnswer}
+        left={false}
       />
     ),
     []
@@ -57,6 +94,7 @@ function Quiz() {
           shuffleDrinks[7].Ingredients,
         ]}
         updateAnswer={addUserAnswer}
+        left={false}
       />
     ),
     []
@@ -73,12 +111,49 @@ function Quiz() {
           shuffleDrinks[11].Ingredients,
         ]}
         updateAnswer={addUserAnswer}
+        left={false}
+      />
+    ),
+    []
+  );
+  const question4 = useMemo(
+    () => (
+      <MCQ
+        title={shuffleDrinks[12].Name}
+        index={3}
+        options={getMethods(shuffleDrinks[12].Recipe[0], methods)}
+        updateAnswer={addUserAnswer}
+        left={true}
+      />
+    ),
+    []
+  );
+  const question5 = useMemo(
+    () => (
+      <MCQ
+        title={shuffleDrinks[13].Name}
+        index={4}
+        options={getMethods(shuffleDrinks[13].Recipe[0], methods)}
+        updateAnswer={addUserAnswer}
+        left={true}
+      />
+    ),
+    []
+  );
+  const question6 = useMemo(
+    () => (
+      <MCQ
+        title={shuffleDrinks[14].Name}
+        index={5}
+        options={getMethods(shuffleDrinks[14].Recipe[0], methods)}
+        updateAnswer={addUserAnswer}
+        left={true}
       />
     ),
     []
   );
 
-  function addUserAnswer(questionNumber: number, answer: number) {
+  function addUserAnswer(questionNumber: number, answer: any) {
     setUserAnswers((prevState) => {
       return {
         ...prevState,
@@ -86,8 +161,7 @@ function Quiz() {
       };
     });
   }
-  console.log(userAnswers);
-  console.log(correctAnswers);
+
   return (
     <div className={"quiz"}>
       <div className={"multipleChoice"}>
@@ -104,6 +178,9 @@ function Quiz() {
           <h1>Multiple Choice- Ingredients</h1>
           <h3>Choose the method that matches the cocktail</h3>
         </div>
+        {question4}
+        {question5}
+        {question6}
       </div>
     </div>
   );
