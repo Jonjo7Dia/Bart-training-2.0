@@ -3,12 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMartiniGlass } from "@fortawesome/free-solid-svg-icons";
 import SearchResults from "./SearchResults";
 import { useState } from "react";
-function QuickSearch() {
+interface Props {
+  close: () => void;
+  setDrink: (params: any) => void;
+}
+
+
+
+function QuickSearch({close, setDrink}: Props) {
   const [isSearching, setIsSearching] = useState(false);
   const [searchWord, setSearchWord] = useState('12');
+
+
   
   return (
-    <div className={"search"}>
+    <div className={"search"} >
       <div className={`searchBar ${isSearching ? 'squareEdge' : ''}`}>
         <div className={"searchIcon"}>
           <FontAwesomeIcon icon={faMartiniGlass} className={"drinkIcon"} />
@@ -27,8 +36,14 @@ function QuickSearch() {
               onFocus={() => {
                 setIsSearching(true);
               }}
-              onBlur ={()=>{
-                  setIsSearching(false);
+
+              onBlur ={(e)=>{
+                  // if(e.target.value.length < 1){
+                  //   setIsSearching(false);
+
+
+                  // }
+
 
               }}
               onChange={(e)=>{
@@ -43,7 +58,7 @@ function QuickSearch() {
           </form>
         </div>
       </div>
-     { isSearching && <SearchResults word ={searchWord} />}
+     { isSearching && <SearchResults word ={searchWord} close={close} setDrink={setDrink}/>}
     </div>
   );
 }

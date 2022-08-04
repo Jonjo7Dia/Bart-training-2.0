@@ -1,0 +1,106 @@
+#popBackground{
+    position: fixed; /* Sit on top of the page content */
+    display: flex;
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+    justify-content: center;
+    align-items: center;
+}
+
+.popUpInfo{
+    width: 40rem;
+    height: 45rem;
+    background-color: white;
+    max-height: 45rem;
+    border-radius: 25px;
+    overflow-y: scroll;
+    z-index: 3;
+}
+.popUpHeading{
+    width: 100%;
+    height: 5.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid 1px black;
+
+}
+.popUpTitle{
+    width: calc(100% - 4rem);
+    height: 100%;
+    border-right: solid 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popUpClose{
+    width: 4rem;
+    border-bottom: solid 1px black;
+    height: 100%;
+}
+.popUpTitle h1{
+    margin-left: 4rem;
+    text-align: center;
+    font-size: 2rem;
+}
+.popUpImage{
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popUpImage img {
+    max-height: 100%;
+    max-width: 100%;
+}
+.popUpRecipe{
+    width: 100%;
+    border-top: 1px black solid;
+    display: flex;
+    flex-direction: row;
+}
+.popUpIng{
+    width: 50%;
+    height: 5rem;
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+.ingHeader{
+    width: 100%;
+    height: 3rem;
+    border-bottom: solid 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+@media only screen and (max-width: 800px){
+    .popUpInfo {
+        width: 90%;
+        height: 90%;
+        max-height: 90%;
+    }
+    .popUpTitle h1{
+        font-size: 1.5rem;
+    }
+    .popUpRecipe{
+        flex-direction: column;
+    }
+    .popUpIng{
+        width: 100%;
+    }
+  
+}
