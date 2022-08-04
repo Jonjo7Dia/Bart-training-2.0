@@ -7,13 +7,17 @@ interface Props{
     totalQuestions: number,
 }
 function ScoreCard({score, totalQuestions}: Props){
+    function closeHandler(){
+        document.getElementById('overlay')?.classList.add('dontShow');
+        document.getElementById('overlay')?.classList.remove('overShow');
+    }
     return <div id={'overlay'} className={'dontShow'}>
         <div className={'scoreCard'}>
             <div className={'scoreHeading'}>
                 <div className={'scoreTitle'}>
 
                 </div>
-                <div className={'closeScore'}>
+                <div className={'closeScore'} onClick={closeHandler}>
               <FontAwesomeIcon icon={faX} className={"drinkIcon"} />
 
                 </div>
@@ -24,7 +28,7 @@ function ScoreCard({score, totalQuestions}: Props){
             </div>
             <div className={'scoreButtons'}>
                 <button className={'submit'}>Try Again</button>
-                <button className={'submit'}>Review</button>
+                <button className={'submit'} onClick={closeHandler}>Review</button>
 
             </div>
         </div>

@@ -79,7 +79,12 @@
 
 
 }
-
+.correct{
+    background-color: #00ff49c9;
+}
+.incorrect{
+    background-color: #ffffff94;
+}
 .choiceIcon {
     height: 100%;
     width: 3rem;

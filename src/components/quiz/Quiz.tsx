@@ -30,10 +30,22 @@ function getMethods(answer:string, array:string[]){
     }
     return shuffleArray(arrayToReturn);
 }
+function getScore(user: Object, answers: Object, questions: number){
+    let score = 0;
+    let tempUser = Object.values(user);
+    let tempAnswers = Object.values(answers);
+    for(let x = 0; x < questions; x++){
+        if(tempUser[x] === tempAnswers[x]){
+            console.log(x);
+            score++;
+        }
+    }
+    return score;
+}
 
 function Quiz() {
     const [tryAgain, setTryAgain] = useState(false);
-  const totalQuestions = 1;
+  const totalQuestions = 6;
   const methods = [
     "Build",
     "Shake and Top Up",
@@ -46,7 +58,7 @@ function Quiz() {
   const drinks = useSelector<PageState, PageState["drinks"]>(
     (state) => state.drinks
   );
-  const shuffleDrinks = shuffleArray(drinks);
+  const [shuffleDrinks, setShuffleDrinks] = useState(shuffleArray(drinks));
   const [userAnswers, setUserAnswers] = useState({
     1: -1,
     2: -1,
@@ -55,6 +67,7 @@ function Quiz() {
     5: -1,
     6: -1,
   });
+
   const correctAnswers = useMemo(
     () => ({
       1: selectCorrect(0, 3),
@@ -64,10 +77,10 @@ function Quiz() {
       5: shuffleDrinks[13].Recipe[0],
       6: shuffleDrinks[14].Recipe[0],
     }),
-    []
+    [setShuffleDrinks]
   );
-  console.log(correctAnswers);
-    console.log(userAnswers);
+
+
   const question1 = useMemo(
     () => (
       <MCQ
@@ -186,6 +199,7 @@ function Quiz() {
         {question6}
       <div className={'submitButton'}>
           <button className={'submit'} onClick={()=>{
+              setShuffleDrinks(prevState => { return shuffleArray(prevState)});
               document.getElementById('overlay')?.classList.remove('dontShow');
               document.getElementById('overlay')?.classList.add('overShow');
           }}>Submit</button>
@@ -193,7 +207,7 @@ function Quiz() {
       </div>
 
       </div>
-      <ScoreCard score={0} totalQuestions={9}/>
+      <ScoreCard score={getScore(userAnswers, correctAnswers, totalQuestions)} totalQuestions={totalQuestions}/>
       {/* <DraggableQuiz/> */}
     </div>
   );
