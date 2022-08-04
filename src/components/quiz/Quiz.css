@@ -132,3 +132,39 @@
     box-shadow: #ff0038 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
 }
+
+@media only screen and (max-width: 840px){
+    .multipleChoice{
+        width: 100%;
+    }
+    .mcq {
+        flex-direction: column-reverse !important;
+    }
+    .mcqImage{
+        width: 100%;
+
+    }
+    .mcqInfo{
+        width: 100%;
+        align-items: center;
+
+    }
+    .mcqName{
+        justify-content: center;
+    }
+    .choice {
+        height: 4rem;
+    }
+    .choiceText {
+        font-size: .7rem;
+
+    }
+    .choices {
+        width: 95%;
+    }
+    .scoreCard {
+        width: 95%;
+
+    }
+
+}

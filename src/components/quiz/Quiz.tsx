@@ -1,9 +1,8 @@
 import { useMemo, useState } from "react";
-import { useSelector } from "react-redux";
-import { PageState } from "../../store/pagesReducer";
-import DraggableQuiz from './DraggableQuiz';
-import $ from 'jquery';
-import ScoreCard from './ScoreCard';
+import { useDispatch } from "react-redux";
+import DraggableQuiz from "./DraggableQuiz";
+import $ from "jquery";
+import ScoreCard from "./ScoreCard";
 import MCQ from "./MCQ";
 import "./Quiz.css";
 
@@ -19,35 +18,36 @@ function shuffleArray(array: any[]) {
 function selectCorrect(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-function getMethods(answer:string, array:string[]){
-    let arrayToReturn = [answer];
-    let tempArray = shuffleArray(array);
-    let x = 0;
-    while(arrayToReturn.length < 4){
-        if(!arrayToReturn.includes(tempArray[x])){
-            arrayToReturn.push(tempArray[x]);
-        }
-        x++;
+function getMethods(answer: string, array: string[]) {
+  let arrayToReturn = [answer];
+  let tempArray = shuffleArray(array);
+  let x = 0;
+  while (arrayToReturn.length < 4) {
+    if (!arrayToReturn.includes(tempArray[x])) {
+      arrayToReturn.push(tempArray[x]);
     }
-    return shuffleArray(arrayToReturn);
+    x++;
+  }
+  return shuffleArray(arrayToReturn);
 }
-function getScore(user: Object, answers: Object, questions: number){
-    let score = 0;
-    let tempUser = Object.values(user);
-    let tempAnswers = Object.values(answers);
-    for(let x = 0; x < questions; x++){
-        if(tempUser[x] === tempAnswers[x]){
-            score++;
-        }
+function getScore(user: Object, answers: Object, questions: number) {
+  let score = 0;
+  let tempUser = Object.values(user);
+  let tempAnswers = Object.values(answers);
+  for (let x = 0; x < questions; x++) {
+    if (tempUser[x] === tempAnswers[x]) {
+      score++;
     }
-    return score;
+  }
+  return score;
 }
 
-interface Props{
-    drinks: any[];
+interface Props {
+  drinks: any[];
+  reset: (params: any) => void;
 }
 
-function Quiz({drinks} : Props) {
+function Quiz({ drinks, reset }: Props) {
   const [tryAgain, setTryAgain] = useState(false);
   const totalQuestions = 6;
   const methods = [
@@ -60,10 +60,7 @@ function Quiz({drinks} : Props) {
     "Shake and Strain",
   ];
 
-  const tempDrinks = [...drinks];
-  const shuffleDrinks = useMemo(()=>(
-      shuffleArray(tempDrinks)
-  ), []);
+  const shuffleDrinks = drinks;
 
   const [userAnswers, setUserAnswers] = useState({
     1: -1,
@@ -83,9 +80,8 @@ function Quiz({drinks} : Props) {
       5: shuffleDrinks[13].Recipe[0],
       6: shuffleDrinks[14].Recipe[0],
     }),
-    [tryAgain, setTryAgain]
+    [drinks]
   );
-
 
   const question1 = useMemo(
     () => (
@@ -111,7 +107,6 @@ function Quiz({drinks} : Props) {
         title={shuffleDrinks[correctAnswers[2]].Name}
         index={1}
         correctAnswer={shuffleDrinks[correctAnswers[2]].Ingredients}
-
         options={[
           shuffleDrinks[4].Ingredients,
           shuffleDrinks[5].Ingredients,
@@ -129,7 +124,6 @@ function Quiz({drinks} : Props) {
       <MCQ
         title={shuffleDrinks[correctAnswers[3]].Name}
         correctAnswer={shuffleDrinks[correctAnswers[3]].Ingredients}
-
         index={2}
         options={[
           shuffleDrinks[8].Ingredients,
@@ -148,7 +142,6 @@ function Quiz({drinks} : Props) {
       <MCQ
         title={shuffleDrinks[12].Name}
         correctAnswer={correctAnswers[4]}
-
         index={3}
         options={getMethods(shuffleDrinks[12].Recipe[0], methods)}
         updateAnswer={addUserAnswer}
@@ -162,7 +155,6 @@ function Quiz({drinks} : Props) {
       <MCQ
         title={shuffleDrinks[13].Name}
         correctAnswer={correctAnswers[5]}
-
         index={4}
         options={getMethods(shuffleDrinks[13].Recipe[0], methods)}
         updateAnswer={addUserAnswer}
@@ -176,14 +168,13 @@ function Quiz({drinks} : Props) {
       <MCQ
         title={shuffleDrinks[14].Name}
         correctAnswer={correctAnswers[6]}
-
         index={5}
         options={getMethods(shuffleDrinks[14].Recipe[0], methods)}
         updateAnswer={addUserAnswer}
         left={true}
       />
     ),
-    []
+    [drinks]
   );
 
   function addUserAnswer(questionNumber: number, answer: any) {
@@ -194,7 +185,6 @@ function Quiz({drinks} : Props) {
       };
     });
   }
-
 
   return (
     <div className={"quiz"}>
@@ -215,18 +205,34 @@ function Quiz({drinks} : Props) {
         {question4}
         {question5}
         {question6}
-      <div className={'submitButton'}>
-          {!tryAgain && <button className={'submit'} onClick={()=>{
-              setTryAgain(true);
-              document.getElementById('overlay')?.classList.remove('dontShow');
-              document.getElementById('overlay')?.classList.add('overShow');
-              $('.correct').addClass('correctColor');
-          }}>Submit</button>}
-          {tryAgain && <button className={'submit'}>Try Again</button>}
+        <div className={"submitButton"}>
+          {!tryAgain && (
+            <button
+              className={"submit"}
+              onClick={() => {
+                setTryAgain(true);
+                document
+                  .getElementById("overlay")
+                  ?.classList.remove("dontShow");
+                document.getElementById("overlay")?.classList.add("overShow");
+                $(".correct").addClass("correctColor");
+              }}
+            >
+              Submit
+            </button>
+          )}
+          {tryAgain && (
+            <button className={"submit"} onClick={reset}>
+              Try Again
+            </button>
+          )}
+        </div>
       </div>
-
-      </div>
-      <ScoreCard score={getScore(userAnswers, correctAnswers, totalQuestions)} totalQuestions={totalQuestions}/>
+      <ScoreCard
+        score={getScore(userAnswers, correctAnswers, totalQuestions)}
+        totalQuestions={totalQuestions}
+        reset={reset}
+      />
       {/* <DraggableQuiz/> */}
     </div>
   );

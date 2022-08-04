@@ -5,8 +5,9 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 interface Props{
     score: number, 
     totalQuestions: number,
+    reset: (params: any) => void;
 }
-function ScoreCard({score, totalQuestions}: Props){
+function ScoreCard({score, totalQuestions, reset}: Props){
     function closeHandler(){
         document.getElementById('overlay')?.classList.add('dontShow');
         document.getElementById('overlay')?.classList.remove('overShow');
@@ -27,7 +28,7 @@ function ScoreCard({score, totalQuestions}: Props){
                 <h1>{score} <strong style={{color: '#ff0038'}}>/</strong> {totalQuestions}</h1>
             </div>
             <div className={'scoreButtons'}>
-                <button className={'submit'}>Try Again</button>
+                <button className={'submit'} onClick={reset}>Try Again</button>
                 <button className={'submit'} onClick={closeHandler}>Review</button>
 
             </div>
