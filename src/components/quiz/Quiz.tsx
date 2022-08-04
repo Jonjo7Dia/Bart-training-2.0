@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { PageState } from "../../store/pagesReducer";
+import DraggableQuiz from './DraggableQuiz';
+import ScoreCard from './ScoreCard';
 import MCQ from "./MCQ";
 import "./Quiz.css";
 
@@ -30,6 +32,7 @@ function getMethods(answer:string, array:string[]){
 }
 
 function Quiz() {
+    const [tryAgain, setTryAgain] = useState(false);
   const totalQuestions = 1;
   const methods = [
     "Build",
@@ -181,7 +184,17 @@ function Quiz() {
         {question4}
         {question5}
         {question6}
+      <div className={'submitButton'}>
+          <button className={'submit'} onClick={()=>{
+              document.getElementById('overlay')?.classList.remove('dontShow');
+              document.getElementById('overlay')?.classList.add('overShow');
+          }}>Submit</button>
+          {tryAgain && <button></button>}
       </div>
+
+      </div>
+      <ScoreCard score={0} totalQuestions={9}/>
+      {/* <DraggableQuiz/> */}
     </div>
   );
 }

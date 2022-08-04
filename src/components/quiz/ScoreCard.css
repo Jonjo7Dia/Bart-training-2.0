@@ -1,0 +1,81 @@
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  /* display: none; Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  justify-content: center;
+  align-items: center;
+}
+.dontShow {
+    display:none;
+}
+.overShow{
+    display: flex;
+}
+
+.scoreCard {
+  height: 20rem;
+  width: 25rem;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+  flex-direction: column;
+}
+
+.scoreHeading {
+  width: 100%;
+  height: 3rem;
+
+  display: flex;
+  flex-direction: row;
+}
+.closeScore{
+    width: 3rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.scoreCard h1 {
+    font-size: 1.5rem;
+
+}
+.closeScore:hover{
+    color: red;
+
+}
+.scoreTitle {
+    height: 100%;
+    width: 22rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.scoreTitle h1{
+    margin-left: 3rem;
+}
+
+.scorePoints {
+    width: 100%;
+    height: 11rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.scoreButtons {
+    width: 100%;
+    height: 7rem;
+    display: flex;
+   align-items: center;
+    justify-content: space-evenly;
+}
