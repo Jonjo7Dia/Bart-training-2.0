@@ -1,12 +1,13 @@
 import './History.css';
 import DrinkInfo from './DrinkInfo'
-import { useSelector } from "react-redux";
-import { PageState } from "../../store/pagesReducer";
+
 import RussianHistory from './RussianHistory';
-function History(){
-    const drinks = useSelector<PageState, PageState["drinks"]>(
-        (state) => state.drinks
-      );
+
+interface Props{
+    drinks: any[];
+}
+function History({drinks}: Props){
+  
       
     return <div className={'history'}>
         {drinks.map((drink, index )=> {

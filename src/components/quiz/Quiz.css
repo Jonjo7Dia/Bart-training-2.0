@@ -80,7 +80,11 @@
 
 }
 .correct{
+    
+}
+.correctColor{
     background-color: #00ff49c9;
+    color: black !important;
 }
 .incorrect{
     background-color: #ffffff94;

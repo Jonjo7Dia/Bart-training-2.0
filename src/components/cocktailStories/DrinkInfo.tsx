@@ -12,6 +12,7 @@ interface Props {
   }
   
 function DrinkInfo({left, drink} : Props){
+
     return (
     <div className={'historyHolder'}>
         <div className={'drinkInfo'}>

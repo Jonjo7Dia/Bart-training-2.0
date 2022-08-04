@@ -8,6 +8,7 @@ interface Props {
   index: number;
   updateAnswer: (questionNumber: number, user: any) => void;
   left: boolean;
+  correctAnswer: any;
 }
 function getImageSource(name: string) {
   if (name === "Martini Gin/Vodka 6:1") {
@@ -22,7 +23,7 @@ function arrayToString(array: any) {
   }
   return string + array[array.length - 1];
 }
-function MCQ({ title, options, index, updateAnswer, left }: Props) {
+function MCQ({ title, options, index, updateAnswer, left, correctAnswer }: Props) {
   const source = getImageSource(title);
   const [chosen, setChosen] = useState(5);
   return (
@@ -33,7 +34,7 @@ function MCQ({ title, options, index, updateAnswer, left }: Props) {
         </div>
         <div className={"choices"}>
           <div
-            className={`choice ${chosen === 0 ? "chosen" : ""} `}
+            className={`choice ${chosen === 0 ? "chosen" : ""} ${correctAnswer === options[0] ? 'correct' : ''}`}
             onClick={() => {
               setChosen(0);
               !left ? updateAnswer(index + 1, (0+ index * 4)) :  updateAnswer(index + 1,  options[0]);
@@ -45,7 +46,7 @@ function MCQ({ title, options, index, updateAnswer, left }: Props) {
             <div className={"choiceText"}>{!left ? arrayToString(options[0]) : options[0] }</div>
           </div>
           <div
-            className={`choice ${chosen === 1 ? "chosen" : ""}`}
+            className={`choice ${chosen === 1 ? "chosen" : ""} ${correctAnswer === options[1] ? 'correct' : ''}`}
             onClick={() => {
               setChosen(1);
               !left ? updateAnswer(index + 1, (1+ index * 4)) :  updateAnswer(index + 1,  options[1]);
@@ -58,7 +59,7 @@ function MCQ({ title, options, index, updateAnswer, left }: Props) {
             <div className={"choiceText"}>{!left ? arrayToString(options[1]) : options[1] }</div>
           </div>
           <div
-            className={`choice ${chosen === 2 ? "chosen" : ""}`}
+            className={`choice ${chosen === 2 ? "chosen" : ""} ${correctAnswer === options[2] ? 'correct' : ''}`}
             onClick={() => {
               setChosen(2);
               !left ? updateAnswer(index + 1,  (2+ index * 4)) : updateAnswer(index + 1,  options[2]) ;
@@ -71,7 +72,7 @@ function MCQ({ title, options, index, updateAnswer, left }: Props) {
             <div className={"choiceText"}>{!left ? arrayToString(options[2]) : options[2] }</div>
           </div>
           <div
-            className={`choice ${chosen === 3 ? "chosen" : ""}`}
+            className={`choice ${chosen === 3 ? "chosen" : ""} ${correctAnswer === options[3] ? 'correct' : ''}`}
             onClick={() => {
               setChosen(3);
               !left ? updateAnswer(index + 1,  (3+ index * 4)) :  updateAnswer(index + 1,  options[3]);
