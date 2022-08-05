@@ -1,11 +1,12 @@
 import "./QuickPop.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 interface Props {
-    close: (params: any) => void;
-    info:any;
+  close: (params: any) => void;
+  info: any;
 }
-function QuickPop({close, info} : Props) {
-    let Name = info.Name;
+function QuickPop({ close, info }: Props) {
+  let Name = info.Name;
   if (Name === "Martini Gin/Vodka 6:1") {
     Name = "Martini";
   }
@@ -17,37 +18,45 @@ function QuickPop({close, info} : Props) {
           <div className={"popUpTitle"}>
             <h1>{info.Name}</h1>
           </div>
-          <div className={"popUpClose"} onClick={close}></div>
+          <div className={"popUpClose"} onClick={close}>
+            <FontAwesomeIcon icon={faX} className={"drinkIcon"} />
+          </div>
         </div>
-        <div className={"popUpImage"}>
-          <img src={source} alt="" />
-        </div>
-        <div className={"popUpRecipe"}>
-          <div className={"popUpIng"}>
-            <div className={"ingHeader"}>
+        <div className={"popContent"}>
+          <div className={"popUpImage"}>
+            <img src={source} alt="" />
+          </div>
+          <div className={"popUpRecipe"}>
+            <div className={"popUpIng"}>
+              <div className={"ingHeader"}>
                 <h2>Ingredients</h2>
-            </div>
-            <div className={'ingList'}>
+              </div>
+              <div className={"ingList"}>
                 <ul>
-                    {info.Ingredients.map((ingredient:any, index:any)=>{
-                        return <li key={index}>{ingredient}</li>
-                    })}
+                  {info.Ingredients.map((ingredient: any, index: any) => {
+                    return <li key={index}>{ingredient}</li>;
+                  })}
                 </ul>
+              </div>
+            </div>
+            <div className={"popUpIng"}>
+              <div className={"ingHeader"}>
+                <h2>Method</h2>
+              </div>
+              <div className={"ingList"}>
+                <ul>
+                  {info.Recipe.map((ingredient: any, index: any) => {
+                    return <li key={index}>{ingredient}</li>;
+                  })}
+                </ul>
+              </div>
             </div>
           </div>
-          <div className={"popUpIng"}>
-            <div className={"ingHeader"}>
-            <h2>Method</h2>
-
-            </div>
-            <div className={'ingList'}>
-                <ul>
-                    {info.Recipe.map((ingredient:any, index:any)=>{
-                        return <li key={index}>{ingredient}</li>
-                    })}
-                </ul>
-            </div>
-            
+          <div className={"ingHeader"}>
+            <h2>History</h2>
+          </div>
+          <div className={"popUpHistory"}>
+            <p>{info.History}</p>
           </div>
         </div>
       </div>

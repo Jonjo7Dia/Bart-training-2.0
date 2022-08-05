@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import './DrinkCard.css'
-
+import '../QuickPop'
+import QuickPop from '../QuickPop';
 interface Props {
     drink: {
       Name: string;
@@ -7,14 +9,19 @@ interface Props {
       Recipe: string[];
       History: string;
     }
+    close: () => void;
+    setDrink: (params: any) => void;
   }
-function DrinkCard({drink} : Props){
+function DrinkCard({drink,close, setDrink} : Props){
     let Name = drink.Name;
     if(Name === 'Martini Gin/Vodka 6:1'){
         Name = 'Martini';
     }
     const source = require(`../../../images/${Name}.png`)
-    return <div className={'drinkCard'}>
+    return <div className={'drinkCard'} onClick={()=>{
+      close();
+      setDrink(drink);
+    }}>
         <div className={'drinkImage'}><img src={source} alt={Name} 
 />
 </div>

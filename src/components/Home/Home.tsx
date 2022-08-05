@@ -24,7 +24,7 @@ function Home() {
     <div className={"home"}>
 
       <QuickSearch close={popHandler} setDrink={setDrink} isSearching={isSearching} setIsSearching={setSearching}/>
-      <Carousel/>
+      <Carousel close={popHandler} setDrink={setDrink}/>
       {showPopUp && <QuickPop close={popHandler} info={popUpInfo}/>}
     </div>
   );
