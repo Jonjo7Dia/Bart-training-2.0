@@ -3,22 +3,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMartiniGlass } from "@fortawesome/free-solid-svg-icons";
 import SearchResults from "./SearchResults";
 import { useState } from "react";
+import e from "express";
 interface Props {
   close: () => void;
   setDrink: (params: any) => void;
+  isSearching: boolean;
+  setIsSearching: (params: any) => void;
 }
 
+function QuickSearch({ close, setDrink, isSearching, setIsSearching }: Props) {
+  const [searchWord, setSearchWord] = useState("");
 
-
-function QuickSearch({close, setDrink}: Props) {
-  const [isSearching, setIsSearching] = useState(false);
-  const [searchWord, setSearchWord] = useState('12');
-
-
-  
   return (
-    <div className={"search"} >
-      <div className={`searchBar ${isSearching ? 'squareEdge' : ''}`}>
+    <div
+      className={"search"}
+    >
+      {isSearching &&  <div className={'blurClick'} onClick={()=>{
+        setIsSearching(false);
+      }}></div>}
+      <div className={`searchBar ${isSearching ? "squareEdge" : ""}`}>
         <div className={"searchIcon"}>
           <FontAwesomeIcon icon={faMartiniGlass} className={"drinkIcon"} />
         </div>
@@ -33,32 +36,22 @@ function QuickSearch({close, setDrink}: Props) {
             <input
               type="text"
               placeholder="Search a Cocktail Recipe"
+              value={isSearching ? searchWord : ''}
               onFocus={() => {
                 setIsSearching(true);
               }}
+              
+              onChange={(e) => {
+                  setSearchWord(e.target.value);
 
-              onBlur ={(e)=>{
-                  // if(e.target.value.length < 1){
-                  //   setIsSearching(false);
-
-
-                  // }
-
-
-              }}
-              onChange={(e)=>{
-                  if(e.target.value.length > 0){
-                    setSearchWord(e.target.value);
-                  }
-                  else {
-                      setSearchWord('12');
-                  }
               }}
             />
           </form>
         </div>
       </div>
-     { isSearching && <SearchResults word ={searchWord} close={close} setDrink={setDrink}/>}
+      {isSearching && (
+        <SearchResults word={searchWord} close={close} setDrink={setDrink} />
+      )}
     </div>
   );
 }

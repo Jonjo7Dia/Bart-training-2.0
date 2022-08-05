@@ -8,7 +8,7 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    z-index: 4; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@
 
 .popUpInfo{
     width: 40rem;
-    height: 45rem;
+    min-height: 45rem;
     background-color: white;
     max-height: 45rem;
     border-radius: 25px;
@@ -30,7 +30,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-bottom: solid 1px black;
+
 
 }
 .popUpTitle{
@@ -43,7 +43,7 @@
 }
 .popUpClose{
     width: 4rem;
-    border-bottom: solid 1px black;
+
     height: 100%;
 }
 .popUpTitle h1{
@@ -63,16 +63,13 @@
     max-width: 100%;
 }
 .popUpRecipe{
+    margin-top: 1rem;
     width: 100%;
-    border-top: 1px black solid;
     display: flex;
     flex-direction: row;
 }
 .popUpIng{
     width: 50%;
-    height: 5rem;
-    border-right: solid 1px black;
-    border-bottom: solid 1px black;
     display: flex;
 
     flex-direction: column;
@@ -81,16 +78,37 @@
 .ingHeader{
     width: 100%;
     height: 3rem;
-    border-bottom: solid 1px black;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
 }
+.ingList{
+    width: 100%;
+    height: 100%;
+
+}
+.ingList ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style-type: none;
+}
+.ingList li{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: red;
+}
 @media only screen and (max-width: 800px){
     .popUpInfo {
         width: 90%;
-        height: 90%;
+        min-height: 90%;
         max-height: 90%;
     }
     .popUpTitle h1{
