@@ -17,9 +17,9 @@
 
 .popUpInfo{
     width: 40rem;
-    min-height: 45rem;
+    height: 95%;
     background-color: white;
-    max-height: 45rem;
+    min-height: 95%;
     border-radius: 25px;
     z-index: 3;
     position: relative;
